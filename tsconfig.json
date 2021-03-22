@@ -18,15 +18,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "transform": "ts-optchain/transform"
       }
-    ]
+    ],
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/*",
     "src/__tests__"
-, "src/components/App.js"  ]
+  ]
 }
