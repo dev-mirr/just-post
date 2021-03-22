@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { ChangeEventHandler } from 'react'
 
 interface IFormInput {
   type: string,
   placeholder: string,
-  desc: string,
+  onChange: ChangeEventHandler<HTMLInputElement>,
 }
 
 export const FormInput = (props: IFormInput) => {
-  const { type, desc, placeholder } = props
   return (
     <div className="row">
-      <label>{desc}</label>
-      <input type={type} placeholder={placeholder} />
+      <input {...props} />
     </div>
   )
 }
