@@ -27,10 +27,12 @@ export const Form = (props: IForm) => {
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     if (!id) {
       console.log('plase enter email')
+
       return
     }
     else if (!password) {
       console.log('plase enter password')
+
       return
     }
 
