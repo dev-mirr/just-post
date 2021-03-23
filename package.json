@@ -19,7 +19,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "lint": "eslint 'src/**' --fix"
+    "lint": "eslint 'src/**' --fix",
+    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'"
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
@@ -28,7 +29,8 @@
     "@types/redux": "^3.6.0",
     "babel-eslint": "^10.1.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1"
   },
   "browserslist": {
     "production": [
