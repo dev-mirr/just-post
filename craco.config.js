@@ -33,6 +33,13 @@ module.exports = function() {
     devServer: devServerConfig => {
       return {
         ...devServerConfig,
+//        proxy: [
+//          {
+//            context: ['/v1', '/users'],
+//            target: 'http://localhost:3309',
+//            changeOrigin: true,
+//          },
+//        ],
       }
     },
   }

@@ -1,19 +1,14 @@
 import React, { ChangeEvent, MouseEvent, useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { FormHeader } from '@/components/user_sign/common/FormHeader'
-//import { Form } from '@/components/user_sign/common/Form'
-import { FormInput } from '@/components/user_sign/common/FormInput'
-import { FormButton } from '@/components/user_sign/common/FormButton'
-import { OtherSignIn } from '@/components/user_sign/signin/OtherSignIn'
+import { FormHeader } from '@/components/userSign/common/Header'
+import { OtherSignIn } from './OtherSignIn'
+import { FormInput } from '@/components/userSign/common/Input'
+import { FormButton } from '@/components/userSign/common/Button'
 
-import { isEmailFormat } from '@/utils/userUtils'
+//import { isEmailFormat } from '@/utils/userUtils'
 
-export const SignupPage = () => {
-//  const handleSubmit = (id: string, password: string) => {
-//    console.log(`= = => is Email format: ${isEmailFormat(id)}`)
-//  }
-
+export const SignInForm = () => {
   const [id, setId] = useState('')
   const [password, setPassword] = useState('')
 
@@ -30,21 +25,19 @@ export const SignupPage = () => {
   }, [setPassword])
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
+    // invalid inputs
     if (!id) {
-      console.log('plase enter email')
-
       return
     }
     else if (!password) {
-      console.log('plase enter password')
-
       return
     }
+
   }
 
   return (
     <div id="loginform">
-      <FormHeader title="Signup" />
+      <FormHeader title="Login"/>
       <FormInput
         type='text'
         placeholder='Enter your Email'
@@ -56,9 +49,14 @@ export const SignupPage = () => {
         onChange={handlePasswordChange}
       />
       <FormButton
-        text='Sign up'
+        text='Sign in'
         onClick={handleSubmit}
       />
+      <div id="sign_up_link">
+        <Link to="/sign-up">
+          sign up
+        </Link>
+      </div>
       <OtherSignIn />
     </div>
   )
