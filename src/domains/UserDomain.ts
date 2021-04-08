@@ -22,9 +22,8 @@ export interface ISignUpResponse {
   data: any
 }
 
-export interface ISignInRequest extends IUserSignIn{
+export interface ISignInRequest extends IUserSignIn {
   //data: IUserSignIn
 }
 
-export interface ISignInResponse extends ISession{
-}
+export interface ISignInResponse extends ISession {}

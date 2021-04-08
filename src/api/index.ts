@@ -24,31 +24,23 @@ export const addToken = (token: string) => {
 }
 
 export const init = () => {
-  const handleRequest = (config: AxiosRequestConfig) => {
-  }
-
   const handleResponse = <T>(response: AxiosResponse<IServerResponse<T>>) => {
     if (response.data && response.data.code !== STATUS_CODE.OK) {
-      throw (response)
+      throw response
     }
 
     if (response.headers.authorization) {
       addToken(response.headers.authorization)
     }
 
-    console.log('= = => handleResponse ')
-    console.log(response)
-
     return response.data.data
   }
 
   const handleError = (e: AxiosError) => {
-    throw (e)
+    throw e
   }
 
   axiosInstance.interceptors.response.use(handleResponse, handleError)
 }
 
-export {
-  postApi
-}
+export { postApi }

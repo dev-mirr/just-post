@@ -13,7 +13,10 @@ import * as api from '@/api'
 const sagaMiddleware = createSagaMiddleware()
 
 const { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ } = window as any
-const composeEnhancers = __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== undefined ? __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+const composeEnhancers =
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== undefined
+    ? __REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
 sagaMiddleware.run(rootSaga)
@@ -23,8 +26,8 @@ api.init()
 render(
   <BrowserRouter>
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )

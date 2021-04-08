@@ -3,11 +3,10 @@ import { ISession } from '@/domains/UserDomain'
 import { IRootState } from '..'
 import { oc } from 'ts-optchain'
 
-interface ISessionState extends ISession {
-}
+interface ISessionState extends ISession {}
 
 const initialState: ISessionState = {
-  sessionId: ''
+  sessionId: '',
 }
 
 export const SESSION_ID = 'SessionId'
@@ -17,14 +16,14 @@ export const sessionActions = {
 }
 
 export const sessionSelector = {
-  sessionId: (state: IRootState) =>oc(state[SESSION_ID]).sessionId
+  sessionId: (state: IRootState) => oc(state[SESSION_ID]).sessionId,
 }
 
 const reducer = {
   [SESSION_ID]: (state: ISessionState, action: Action<any>) => ({
     ...state,
-    sessionId: action.payload
-  })
+    sessionId: action.payload,
+  }),
 }
 
 export const sessionReducer = handleActions(reducer, initialState)

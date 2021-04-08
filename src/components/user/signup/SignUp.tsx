@@ -18,29 +18,36 @@ export const SignUp = () => {
   const [password, setPassword] = useState('')
 
   const onChangeId = useCallback(
-  (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setId(value)
-  }, [setId])
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target
+      setId(value)
+    },
+    [setId],
+  )
 
   const onChangeName = useCallback(
-  (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setName(value)
-  }, [setId])
-
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target
+      setName(value)
+    },
+    [setId],
+  )
 
   const onChangeEmail = useCallback(
-  (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setEmail(value)
-  }, [setEmail])
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target
+      setEmail(value)
+    },
+    [setEmail],
+  )
 
   const onChangePassword = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setPassword(value)
-  }, [setPassword])
+      const { value } = e.target
+      setPassword(value)
+    },
+    [setPassword],
+  )
 
   const onSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     if (!id || !password || !name || !email) {
@@ -49,49 +56,29 @@ export const SignUp = () => {
       return
     }
 
-    if (!isEmailFormat(email))
-      return
+    if (!isEmailFormat(email)) return
 
-    dispatch(signUpAsync.post({
-      userId: id,
-      name: name,
-      email: email,
-      password: password
-    }))
+    dispatch(
+      signUpAsync.post({
+        userId: id,
+        name: name,
+        email: email,
+        password: password,
+      }),
+    )
   }
 
   return (
     <div id="loginform">
       <FormHeader title="Sign up" />
-      <FormInput
-        type="text"
-        placeholder="ID"
-        onChange={onChangeId}
-      />
-      <FormInput
-        type="text"
-        placeholder="Name"
-        onChange={onChangeName}
-      />
-      <FormInput
-        type="text"
-        placeholder="Email"
-        onChange={onChangeEmail}
-      />
-      <FormInput
-        type="Password"
-        placeholder="Password"
-        onChange={onChangePassword}
-      />
-      <FormButton
-        text="Sign up"
-        onClick={onSubmit}
-      />
-        <div id="sign_up_link">
-          <Link to="sign-in">
-            sign in
-          </Link>
-        </div>
+      <FormInput type="text" placeholder="ID" onChange={onChangeId} />
+      <FormInput type="text" placeholder="Name" onChange={onChangeName} />
+      <FormInput type="text" placeholder="Email" onChange={onChangeEmail} />
+      <FormInput type="Password" placeholder="Password" onChange={onChangePassword} />
+      <FormButton text="Sign up" onClick={onSubmit} />
+      <div id="sign_up_link">
+        <Link to="sign-in">sign in</Link>
+      </div>
     </div>
   )
 }

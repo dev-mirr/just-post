@@ -7,16 +7,16 @@ const isDev = true
 const phase = 'dev'
 const assetPath = '/'
 
-module.exports = function() {
+module.exports = function () {
   return {
     webpack: {
-      configure: webpackConfig => {
+      configure: (webpackConfig) => {
         return {
           ...webpackConfig,
           output: {
             ...webpackConfig.output,
-            publicPath: '/'
-          }
+            publicPath: '/',
+          },
         }
       },
       alias: {
@@ -30,16 +30,16 @@ module.exports = function() {
         }),
       ],
     },
-    devServer: devServerConfig => {
+    devServer: (devServerConfig) => {
       return {
         ...devServerConfig,
-//        proxy: [
-//          {
-//            context: ['/v1', '/users'],
-//            target: 'http://localhost:3309',
-//            changeOrigin: true,
-//          },
-//        ],
+        //        proxy: [
+        //          {
+        //            context: ['/v1', '/users'],
+        //            target: 'http://localhost:3309',
+        //            changeOrigin: true,
+        //          },
+        //        ],
       }
     },
   }

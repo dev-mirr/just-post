@@ -9,7 +9,6 @@ import {
   IUserInfo,
   IUserSignIn,
 } from '@/domains/UserDomain'
-import { IDefaultResponse } from '@/domains/common/CommonDomain'
 import { addToken } from '@/api'
 
 /* interface */
@@ -40,11 +39,10 @@ function* signUp(action: Action<IUserInfo>) {
   const payload: ISignUpRequest = {
     data: {
       ...action.payload,
-    }
+    },
   }
   try {
     yield call(fetchCreateUser, payload)
-
   } catch (e) {
     alert(`sign up error`)
 
@@ -85,12 +83,10 @@ const reducer = {
 }
 
 /* selector */
-export const signUpSelector = {
-
-}
+export const signUpSelector = {}
 
 export const userReducer = handleActions(reducer, initialState)
 export const userSignSaga = [
   takeLatest(signUpAsync.POST, signUp),
-  takeLatest(signInAsync.POST, signIn)
+  takeLatest(signInAsync.POST, signIn),
 ]

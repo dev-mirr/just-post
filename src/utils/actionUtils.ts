@@ -33,7 +33,7 @@ export const createPostAction = <T>(type: string): IPostAction => {
   }
 }
 
-export function createSaga<T> (actions: IPostAction, callback: any) {
+export function createSaga<T>(actions: IPostAction, callback: any) {
   return function* (action: Action<T>) {
     const payload = oc(action).payload()
 

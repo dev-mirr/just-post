@@ -10,9 +10,7 @@ export const rootReducer = combineReducers({
 })
 
 export function* rootSaga() {
-  yield all([
-    ...userSignSaga,
-  ])
+  yield all([...userSignSaga])
 }
 
 export type IRootState = ReturnType<typeof rootReducer>

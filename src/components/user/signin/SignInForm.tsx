@@ -9,23 +9,26 @@ import { FormButton } from '@/components/user/common/Button'
 
 import { signInAsync } from '@/modules/user/UserModule'
 
-
 export const SignInForm = () => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleIdChange = useCallback(
-  (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setEmail(value)
-  }, [setEmail])
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target
+      setEmail(value)
+    },
+    [setEmail],
+  )
 
   const handlePasswordChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setPassword(value)
-  }, [setPassword])
+      const { value } = e.target
+      setPassword(value)
+    },
+    [setPassword],
+  )
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     // invalid inputs
@@ -38,25 +41,16 @@ export const SignInForm = () => {
 
   return (
     <div id="loginform">
-      <FormHeader title="Login"/>
+      <FormHeader title="Login" />
+      <FormInput type="text" placeholder="Enter your Email" onChange={handleIdChange} />
       <FormInput
-        type='text'
-        placeholder='Enter your Email'
-        onChange={handleIdChange}
-      />
-      <FormInput
-        type='Password'
-        placeholder='Enter your Password'
+        type="Password"
+        placeholder="Enter your Password"
         onChange={handlePasswordChange}
       />
-      <FormButton
-        text='Sign in'
-        onClick={handleSubmit}
-      />
+      <FormButton text="Sign in" onClick={handleSubmit} />
       <div id="sign_up_link">
-        <Link to="/sign-up">
-          sign up
-        </Link>
+        <Link to="/sign-up">sign up</Link>
       </div>
       <OtherSignIn />
     </div>
