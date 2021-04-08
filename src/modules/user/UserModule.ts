@@ -10,6 +10,8 @@ import {
   IUserSignIn,
 } from '@/domains/UserDomain'
 import { addToken } from '@/api'
+import { push } from '@/utils/historyUtils'
+import { USER_ROUTES } from '@/domains/common/CommonDomain'
 
 /* interface */
 interface ISignInState {
@@ -43,6 +45,10 @@ function* signUp(action: Action<IUserInfo>) {
   }
   try {
     yield call(fetchCreateUser, payload)
+
+    alert(`sign up success!! \nPlease sign in`)
+
+    push(USER_ROUTES.SIGN_IN)
   } catch (e) {
     alert(`sign up error`)
 

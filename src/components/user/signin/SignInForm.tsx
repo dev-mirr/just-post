@@ -8,6 +8,7 @@ import { FormInput } from '@/components/user/common/Input'
 import { FormButton } from '@/components/user/common/Button'
 
 import { signInAsync } from '@/modules/user/UserModule'
+import { USER_ROUTES } from '@/domains/common/CommonDomain'
 
 export const SignInForm = () => {
   const dispatch = useDispatch()
@@ -50,7 +51,7 @@ export const SignInForm = () => {
       />
       <FormButton text="Sign in" onClick={handleSubmit} />
       <div id="sign_up_link">
-        <Link to="/sign-up">sign up</Link>
+        <Link to={USER_ROUTES.SIGN_UP}>sign up</Link>
       </div>
       <OtherSignIn />
     </div>

@@ -9,6 +9,7 @@ import { FormButton } from '@/components/user/common/Button'
 
 import { signUpAsync } from '@/modules/user/UserModule'
 import { isEmailFormat } from '@/utils/commonUtils'
+import { USER_ROUTES } from '@/domains/common/CommonDomain'
 
 export const SignUp = () => {
   const dispatch = useDispatch()
@@ -77,7 +78,7 @@ export const SignUp = () => {
       <FormInput type="Password" placeholder="Password" onChange={onChangePassword} />
       <FormButton text="Sign up" onClick={onSubmit} />
       <div id="sign_up_link">
-        <Link to="sign-in">sign in</Link>
+        <Link to={USER_ROUTES.SIGN_IN}>sign in</Link>
       </div>
     </div>
   )

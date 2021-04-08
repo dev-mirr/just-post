@@ -7,8 +7,9 @@ import { rootReducer, rootSaga } from '@/modules'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import { BrowserRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import * as api from '@/api'
+import history from '@/utils/historyUtils'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -24,10 +25,10 @@ sagaMiddleware.run(rootSaga)
 api.init()
 
 render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <Router history={history}>
+        <App />
+    </Router>
+  </Provider>,
   document.getElementById('root'),
 )
