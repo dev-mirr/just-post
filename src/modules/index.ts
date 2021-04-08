@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import { all } from 'redux-saga/effects'
 
-import { SIGNUP, signUpReducer, userSignSaga } from '@/modules/userSign/SignUpModule'
+import { SIGNUP, userReducer, userSignSaga } from '@/modules/user/UserModule'
+import { SESSION_ID, sessionReducer } from '@/modules/user/SessionModule'
 
 export const rootReducer = combineReducers({
-  [SIGNUP]: signUpReducer,
+  [SIGNUP]: userReducer,
+  [SESSION_ID]: sessionReducer,
 })
 
 export function* rootSaga() {

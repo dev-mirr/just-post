@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import { BrowserRouter } from 'react-router-dom'
+import * as api from '@/api'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -16,6 +17,8 @@ const composeEnhancers = __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== undefined ? __
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
 sagaMiddleware.run(rootSaga)
+
+api.init()
 
 render(
   <BrowserRouter>

@@ -22,7 +22,7 @@ module.exports = function() {
       alias: {
         '@': resolve('src'),
       },
-      devtool: isDev ? 'module-source-map': false,
+      //devtool: isDev ? 'module-source-map': false,
       plugins: [
         new webpack.DefinePlugin({
           PHASE: JSON.stringify(phase),

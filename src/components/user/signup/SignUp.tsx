@@ -2,13 +2,13 @@ import React, { ChangeEvent, MouseEvent, useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import { FormHeader } from '@/components/userSign/common/Header'
-import { FormInput } from '@/components/userSign/common/Input'
-import { FormButton } from '@/components/userSign/common/Button'
+import { FormHeader } from '@/components/user/common/Header'
+import { FormInput } from '@/components/user/common/Input'
+import { FormButton } from '@/components/user/common/Button'
 //import { OtherSignIn } from '@/components/userSign/signin/OtherSignIn'
 
-import { signUpAsync } from '@/modules/userSign/SignUpModule'
-import { isEmailFormat } from '@/utils/userUtils'
+import { signUpAsync } from '@/modules/user/UserModule'
+import { isEmailFormat } from '@/utils/commonUtils'
 
 export const SignUp = () => {
   const dispatch = useDispatch()
@@ -53,7 +53,7 @@ export const SignUp = () => {
       return
 
     dispatch(signUpAsync.post({
-      id: id,
+      userId: id,
       name: name,
       email: email,
       password: password

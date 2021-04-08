@@ -1,22 +1,25 @@
 import React, { ChangeEvent, MouseEvent, useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
-import { FormHeader } from '@/components/userSign/common/Header'
+import { FormHeader } from '@/components/user/common/Header'
 import { OtherSignIn } from './OtherSignIn'
-import { FormInput } from '@/components/userSign/common/Input'
-import { FormButton } from '@/components/userSign/common/Button'
+import { FormInput } from '@/components/user/common/Input'
+import { FormButton } from '@/components/user/common/Button'
 
-//import { isEmailFormat } from '@/utils/userUtils'
+import { signInAsync } from '@/modules/user/UserModule'
+
 
 export const SignInForm = () => {
-  const [id, setId] = useState('')
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleIdChange = useCallback(
   (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    setId(value)
-  }, [setId])
+    setEmail(value)
+  }, [setEmail])
 
   const handlePasswordChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,13 +29,11 @@ export const SignInForm = () => {
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     // invalid inputs
-    if (!id) {
-      return
-    }
-    else if (!password) {
+    if (!email || !password) {
       return
     }
 
+    dispatch(signInAsync.post({ email, password }))
   }
 
   return (
