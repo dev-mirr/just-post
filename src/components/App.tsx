@@ -1,17 +1,20 @@
 import React from 'react'
+import loadable from '@loadable/component'
 import { Route, Redirect, Switch } from 'react-router-dom'
 
-import { SignIn } from '@/components/user/signin/SignIn'
-import { SignUp } from '@/components/user/signup/SignUp'
-
-import { USER_ROUTES } from '@/domains/common/CommonDomain'
+import { ROOT, USER_ROUTES } from '@/domains/common/CommonDomain'
 
 export const App = () => {
+  console.log("통과")
+
   return (
-    <Switch>
-      <Route path={USER_ROUTES.SIGN_IN} component={SignIn} />
-      <Route path={USER_ROUTES.SIGN_UP} component={SignUp} />
-      <Route path='/' component={SignIn} />
-    </Switch>
+    <>
+      <Switch>
+        <Route path={ROOT.USER} component={loadable(() => 
+          import('./user'),
+        )} />
+        <Redirect path='/' to={ROOT.USER} />
+      </Switch>
+    </>
   )
 }

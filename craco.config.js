@@ -27,6 +27,7 @@ module.exports = function () {
         new webpack.DefinePlugin({
           PHASE: JSON.stringify(phase),
           ASSET_PATH: JSON.stringify(assetPath),
+          'process.env.ASSET_PATH': JSON.stringify(assetPath),
         }),
       ],
     },

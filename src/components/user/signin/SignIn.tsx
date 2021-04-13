@@ -2,8 +2,6 @@ import React from 'react'
 
 import { SignInForm } from './SignInForm'
 
-import '@/resources/css/login.css'
-
 export const SignIn = () => {
   return (
     <div>

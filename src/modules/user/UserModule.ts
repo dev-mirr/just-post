@@ -1,7 +1,7 @@
 import { handleActions, Action } from 'redux-actions'
 import { call, takeLatest } from 'redux-saga/effects'
 import { createPostAction } from '@/utils/actionUtils'
-import { fetchCreateUser, fetchSignIn } from '@/api/user/UserApi'
+import { fetchCreateUser, fetchSignIn } from '@/api/UserApi'
 import {
   ISignInRequest,
   ISignInResponse,
@@ -64,9 +64,8 @@ function* signIn(action: Action<IUserSignIn>) {
 
   try {
     const response: ISignInResponse = yield call(fetchSignIn, params)
-
     addToken(response.sessionId)
-    // 로그인 페이지 이동 기능 추가해야함
+
   } catch (e) {
     alert(`sign in error`)
 

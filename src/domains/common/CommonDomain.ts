@@ -12,7 +12,7 @@ export interface IServerResponse<T> {
 
 
 export enum ROOT {
-  USER = '/auth',
+  USER = '/users',
 }
 
 export const USER_ROUTES = {
