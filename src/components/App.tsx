@@ -5,7 +5,6 @@ import { Route, Redirect, Switch } from 'react-router-dom'
 import { ROOT, USER_ROUTES } from '@/domains/common/CommonDomain'
 
 export const App = () => {
-  console.log("통과")
 
   return (
     <>
